@@ -53,6 +53,7 @@
      - 默认 public
      - 设置 `origin` 远程，并执行首次 `git push -u origin <branch>`
    - 若出现 `Permission denied (publickey)`，在结果反馈中说明需配置 SSH key 或改用 HTTPS。
+   - **打版本 tag（必做）**：首次推送完成后，在项目目录执行 `git tag v0.1.0`（或 `v1.0.0`），再 `git push origin <tagname>`，便于后续回溯与发布。
 
 5. **结果反馈**
    - 告诉用户：
@@ -68,6 +69,7 @@
 - 遵守用户关于端口、技术栈、权限等的显式约束（如禁止使用 `kill`/`pkill`）。
 - 若操作涉及破坏性修改（删除文件、覆盖已有仓库），必须先与用户确认。
 - 如果用户只想做项目初始化而**不推送到 GitHub**，则只执行本地生成和 git 初始化，跳过 `gh repo create` 和 `git push`。
+- **版本 tag**：每次修复、升级或完成合并并提交后，需打版本 tag（如 `v0.1.0`、`v1.0.1`，建议语义化版本），并执行 `git push origin <tagname>` 推送到远程。
 
 ---
 
